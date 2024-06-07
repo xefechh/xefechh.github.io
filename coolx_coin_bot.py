@@ -1,5 +1,4 @@
 import telebot
-import webbrowser
 from telebot import types
 
 # Your bot's API token
@@ -8,8 +7,11 @@ bot = telebot.TeleBot(API_TOKEN)
 
 @bot.message_handler(commands=['start'])
 def main(message):
-    bot.send_message(message.chat.id, f'Привет, {message.from_user.username}')
-    print(message.from_user.first_name)
-
+    if message.from_user.language_code == 'ru':
+        bot.send_message(message.chat.id, f'Привет, {message.from_user.username}')
+        print(message.from_user.username, message.from_user.language_code)
+    else:
+        bot.send_message(message.chat.id, f'Hello, {message.from_user.username}')
+        print(message.from_user.username, message.from_user.language_code)
 
 bot.polling(non_stop=True)
