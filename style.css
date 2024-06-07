@@ -29,6 +29,10 @@ body {
     text-align: center; /* Center-align text */
 }
 
+img{
+    width: 72%;
+}
+
 .score {
     font-size: 24px;
     margin: 10px 0;
@@ -39,9 +43,10 @@ body {
 }
 
 .main_click_button {
-    height: 100px;
-    width: 100px;
-    border-radius: 50px;
+    aspect-ratio: 1/1;
+    width: 80vw;
+    height: auto;
+    border-radius: 1000px;
     font-size: 16px;
     cursor: pointer;
     background-color: #61dafb;
