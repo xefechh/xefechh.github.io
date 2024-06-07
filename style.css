@@ -23,7 +23,6 @@ body {
     flex-direction: column; /* Stack children vertically */
     justify-content: center;
     align-items: center;
-    background: #444;
     padding: 20px;
     border-radius: 10px;
     width: 300px;
