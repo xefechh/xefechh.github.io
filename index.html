@@ -9,15 +9,28 @@
     
 </head>
 <body>
-    <div class="game">
-        <p id="score" class="score">Score: 0cc</p>
-        <div class="button-container">
-            <button id="main_click_button" class="main_click_button"><l-spiral size="100" speed="0.9" color="black" ></l-spiral></button>
-            
+
+    <div class="total-coins">
+        <img src="try1.png">
+        <p id="score">0</p>
+    </div>
+
+    <div class="main-coin-wrapper">
+        <button id="main-coin">
+            <img src="try1.png">
+        </button>
+    </div>
+
+    <div class="main-data-wrapper">
+        <div class="main-data">
+            <div class="main-data-cell">Earn per tap</div>
+            <div class="main-data-cell">Coins to level up</div>
+            <div class="main-data-cell">Profit per hour</div>
         </div>
     </div>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/spiral.js"></script>
-
+    
+    
+     
     
     <script defer src="script.js"></script>
 </body>

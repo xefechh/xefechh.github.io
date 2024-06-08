@@ -1,58 +1,73 @@
-/* style.css */
-/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-html,
-body {
-    touch-action: manipulation;
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0; /* Remove default margin */
+    touch-action: manipulation; /* Prevent touch zooming */
+    overflow: hidden;
 }
 
+body{
+    background: rgb(53, 53, 53);    
+}
 
-body {
-    font-family: Arial, sans-serif;
+.main-data-wrapper{
+    margin: 0 auto;
+    padding: 0;
+    width: 95%;
+}
+
+.main-data{
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #282c34;
+    justify-content: center;
+    
+}
+
+.main-data-cell{
+    background-color: #242424;
     color: white;
-}
-
-.game {
+    height: 40px;
+    padding: 5px;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    flex-grow: 1;
+    margin: 10px 5px;
+    border: none;
     border-radius: 10px;
-    width: 300px;
-    text-align: center; /* Center-align text */
 }
 
-img{
-    width: 72%;
+.total-coins{
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    align-items: center;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    margin: 50px 0 20px 0;
 }
 
-.score {
-    font-size: 24px;
-    margin: 10px 0;
+.total-coins img{
+    height: 100%;
+    margin: 0 10px 0 0;
 }
 
-.button-container {
-    margin-top: 20px; /* Adjust the margin as needed */
+.main-coin-wrapper{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-.main_click_button {
-    aspect-ratio: 1/1;
-    width: 80vw;
-    height: auto;
-    border-radius: 1000px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #61dafb;
+#main-coin{
+    background-color: transparent;
     border: none;
 }
 
-.main_click_button:hover {
-    background-color: #21a1f1;
+.main-coin-wrapper img{
+    width: 100%;
 }
