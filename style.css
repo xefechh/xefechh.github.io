@@ -47,8 +47,7 @@ body {
 #main-coin img {
     width: 100%;
     max-width: 300px; /* Prevents image from being too large */
-    border-radius: 50%; /* Makes the button circular */
-    border: 2px solid white; /* Adds a border to the button */
+    border-radius: 50%;
 }
 
 .main-data-wrapper {
