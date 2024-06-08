@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 
 html, body {
     height: 100%;
@@ -8,24 +8,63 @@ html, body {
     overflow: hidden;
 }
 
-body{
-    background: rgb(53, 53, 53);    
+body {
+    background: rgb(53, 53, 53); 
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.main-data-wrapper{
+.total-coins {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 50px 0 20px 0;
+}
+
+.total-coins img {
+    height: 30px; /* Adjusted to fit better */
+    margin-right: 10px;
+}
+
+.main-coin-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-coin {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+#main-coin img {
+    width: 100%;
+    max-width: 300px; /* Prevents image from being too large */
+    border-radius: 50%; /* Makes the button circular */
+    border: 2px solid white; /* Adds a border to the button */
+}
+
+.main-data-wrapper {
+    width: 95%;
     margin: 0 auto;
     padding: 0;
-    width: 95%;
 }
 
-.main-data{
+.main-data {
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: space-between; /* Adjusted to space out the cells evenly */
+    width: 100%;
 }
 
-.main-data-cell{
+.main-data-cell {
     background-color: #242424;
     color: white;
     height: 40px;
@@ -37,37 +76,5 @@ body{
     margin: 10px 5px;
     border: none;
     border-radius: 10px;
-}
-
-.total-coins{
-    height: 5vh;
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 30px;
-    align-items: center;
-    font-family: Montserrat, sans-serif;
-    font-weight: 700;
-    margin: 50px 0 20px 0;
-}
-
-.total-coins img{
-    height: 100%;
-    margin: 0 10px 0 0;
-}
-
-.main-coin-wrapper{
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-#main-coin{
-    background-color: transparent;
-    border: none;
-}
-
-.main-coin-wrapper img{
-    width: 100%;
+    text-align: center; /* Center-aligns the text inside cells */
 }
