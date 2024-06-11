@@ -67,7 +67,7 @@ body {
     background-color: #242424;
     color: white;
     height: 40px;
-    padding: 5px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,4 +76,10 @@ body {
     border: none;
     border-radius: 10px;
     text-align: center; /* Center-aligns the text inside cells */
+    flex-direction: column;
+    
+}
+
+.main-data-cell p {
+    margin: 0;
 }
