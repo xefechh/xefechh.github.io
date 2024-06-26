@@ -1,3 +1,5 @@
+window.Telegram.WebApp.expand();
+
 const screen = document.querySelector('.screen');
 const green = document.querySelector('.data-field');
 
