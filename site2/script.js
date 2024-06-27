@@ -1,7 +1,7 @@
 window.Telegram.WebApp.expand();
 
-const screen = document.querySelector('.screen');
-const green = document.querySelector('.data-field');
+const click_area = document.querySelector('.screen');
+const money = document.getElementById('money');
 
 green.addEventListener('click', (event) => {
     event.stopPropagation();
