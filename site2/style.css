@@ -55,6 +55,7 @@ body {
     position: relative;
     text-align: justify;
     text-justify: inter-word;
+    background-color: transparent;
 }
 
 body::before, body::after{
@@ -93,6 +94,7 @@ body::after{
 
 .budget p{
     color: #6f7886;
+    background-color: transparent;
 }
 
 @media screen and (max-width: 410px) {
