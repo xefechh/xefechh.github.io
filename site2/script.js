@@ -1,9 +1,10 @@
 window.Telegram.WebApp.expand();
 
 const click_area = document.querySelector('.screen');
+const card_area = document.querySelector('.card');
 const money = document.getElementById('money');
 
-green.addEventListener('click', (event) => {
+card_area.addEventListener('click', (event) => {
     event.stopPropagation();
 });
 
