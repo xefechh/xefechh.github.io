@@ -6,11 +6,15 @@
     font-family: 'Inconsolata', monospace;
 }
 
+html, body {
+    height: 100vh;
+    overflow: hidden; /* Prevents scrolling */
+}
+
 body {
     background-color: white;
     display: flex;
     justify-content: center;
-    overflow: hidden;
 }
 
 .card{
@@ -18,7 +22,7 @@ body {
     border: 1px solid #fff;
     border-radius: 15px;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-    font-size: 1.9rem;
+    font-size: 7vw;
     height: 220px;
     overflow: hidden;
     position: relative;
@@ -38,15 +42,18 @@ body {
 .card__text{
     color: #6f7886;
     margin-left: 30px;
+    margin-right: 30px;
     margin-top: 100px;
     position: relative;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 body::before, body::after{
     content: '';
     position: absolute;
     border-radius: 50%;
-    opacity: 0.7;
+    opacity: 0.85;
     z-index: -1;
     aspect-ratio: 1/1;
 }
