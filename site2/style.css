@@ -37,6 +37,8 @@ body {
     width: 90%;
     max-width: 365px;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
 }
 
 .visa{
