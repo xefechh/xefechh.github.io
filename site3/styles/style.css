@@ -7,8 +7,18 @@
     --background-color-bottom-dark: #191A1D;
     --background-color-top-dark: #34393E;
     --card-color-dark: #34393E;
+    --text-color-dark: #A7A8AA;
     --level1-color: #65d681;
-    --progress-level: 80%;
+    --level2-color: #65d681;
+    --level3-color: #65d681;
+    --level4-color: #65d681;
+    --level5-color: #65d681;
+    --level6-color: #65d681;
+    --level7-color: #65d681;
+    --level8-color: #65d681;
+    --level9-color: #65d681;
+    --level10-color: #65d681;
+    --progress-level: 60%;
 /*LIGHT COLORS*/
 }
 
@@ -35,6 +45,7 @@ body{
     align-items: center;
 
 }
+
 /*CARD*/
 .card{
     max-width: 365px;
@@ -47,7 +58,7 @@ body{
 }
 
 .card .card-text{
-    color: #A7A8AA;
+    color: var(--text-color-dark);
     font-size: 30px;
     font-weight: 500;
 }
@@ -70,28 +81,50 @@ body{
     font-size: min(24px, 6vw);
 }
 
-
-.data{
+.data-container{
+    display: flex;
     max-width: 365px;
     width: 100%;
-    aspect-ratio: 16/3;
-    background-color: var(--card-color-dark);
-    border-radius: 30px;
-    padding: 20px;
-    box-shadow: 3px 3px 6px #151719, -3px -3px 6px #535b63;
+    flex-direction: row;
+    aspect-ratio: 12/2;
+    padding: 0;
     margin-top: 10px;
+    gap: 5px;
 }
 
+.data {
+    flex-grow: 1;
+    color: var(--text-color-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center horizontally */
+    background-color: var(--card-color-dark);
+    border-radius: 30px;
+    padding: 0px;
+    box-shadow: inset 3px 3px 6px #151719, inset -3px -3px 6px #535b63;
+    padding: 10px;
+}
+
+.data span:nth-child(1){
+    display: flex;
+    align-items: center;
+}
+
+.data span:nth-child(2){
+    font-weight: bold;
+}
+
+
 .progressbar {
-    margin-top: 10px;
     width: 90%;
     max-width: 330px;
-    height: 7px;
+    max-height: 7px;
+    height: 1.8vw;
     border-radius: 5px;
     background: #2B2E33;
-    position: relative;
     box-shadow: inset 0px 2px 5px rgb(0, 0, 0), -0px 2px 3px #555a64;
     overflow: hidden;
+    margin-top: 7px;
 }
 
 .progressbar .progress {
@@ -101,5 +134,4 @@ body{
     width: var(--progress-level);
     box-shadow: inset 0px 1px 6px black;
 }
-
 
