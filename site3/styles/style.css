@@ -8,6 +8,7 @@
     --background-color-top-dark: #34393E;
     --card-color-dark: #34393E;
     --level1-color: #65d681;
+    --progress-level: 80%;
 /*LIGHT COLORS*/
 }
 
@@ -77,18 +78,28 @@ body{
     background-color: var(--card-color-dark);
     border-radius: 30px;
     padding: 20px;
-    box-shadow:  3px 3px 6px #151719, -3px -3px 6px #535b63;
+    box-shadow: 3px 3px 6px #151719, -3px -3px 6px #535b63;
     margin-top: 10px;
 }
 
-.progressbar{
+.progressbar {
     margin-top: 10px;
-    max-width: 365px;
-    width: 100%;
+    width: 90%;
+    max-width: 330px;
     height: 7px;
     border-radius: 5px;
-    background: linear-gradient(to right, red, orange, yellow);
-    box-shadow: inset black;
+    background: #2B2E33;
+    position: relative;
+    box-shadow: inset 0px 2px 5px rgb(0, 0, 0), -0px 2px 3px #555a64;
+    overflow: hidden;
+}
+
+.progressbar .progress {
+    height: 100%;
+    border-radius: 5px;
+    background: var(--level1-color)/*linear-gradient(to right, red, orange, yellow)*/;
+    width: var(--progress-level);
+    box-shadow: inset 0px 1px 6px black;
 }
 
 
