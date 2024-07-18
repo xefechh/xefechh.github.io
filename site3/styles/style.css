@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+/*----------MAIN COLORS----------*/
+:root{
+/*----------DARK COLORS----------*/
+    --background-color-bottom-dark: #191A1D;
+    --background-color-top-dark: #34393E;
+    --card-color-dark: #34393E;
+    --level1-color: #65d681;
+/*----------LIGHT COLORS---------*/
+}
+
+/*----------MAIN STYLES----------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inconsolata', sans-serif;
+    user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background: linear-gradient(to top, var(--background-color-bottom-dark), var(--background-color-top-dark));
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.card{
+    max-width: 365px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: var(--card-color-dark);
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow:  7px 7px 14px #151719, -7px -7px 14px #535b63;
+}
+
+.card > .card-text{
+    color: #A7A8AA;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+
+
