@@ -22,11 +22,12 @@
 html, body {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 body{
     background: linear-gradient(to top, var(--background-color-bottom-dark), var(--background-color-top-dark));
-    padding: 5%;
+    padding: min(5%, 20px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,10 +44,28 @@ body{
     box-shadow:  7px 7px 14px #151719, -7px -7px 14px #535b63;
 }
 
-.card > .card-text{
+.card .card-text{
     color: #A7A8AA;
     font-size: 30px;
     font-weight: 500;
+}
+
+.card .budget{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: min(34.3px, 8.5vw);
+    text-wrap: wrap;
+}
+
+.card .card-number{
+    font-size: min(34.3px, 8.5vw);
+    text-wrap: nowrap;
+}
+
+.card .registration-date{
+    font-size: min(24px, 6vw);
 }
 
 
