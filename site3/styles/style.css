@@ -8,16 +8,8 @@
     --background-color-top-dark: #34393E;
     --card-color-dark: #34393E;
     --text-color-dark: #A7A8AA;
-    --level1-color: #65d681;
-    --level2-color: #65d681;
-    --level3-color: #65d681;
-    --level4-color: #65d681;
-    --level5-color: #65d681;
-    --level6-color: #65d681;
-    --level7-color: #65d681;
-    --level8-color: #65d681;
-    --level9-color: #65d681;
-    --level10-color: #65d681;
+    --level-color: #65d681;
+    --level-color-dark: #789980;
     --progress-level: 60%;
 /*LIGHT COLORS*/
 }
@@ -38,12 +30,11 @@ html, body {
 }
 
 body{
-    background: linear-gradient(to top, var(--background-color-bottom-dark), var(--background-color-top-dark));
+    background: linear-gradient(to right, #CED7E0, #7C7B89);
     padding: min(5%, 20px);
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 /*CARD*/
@@ -54,7 +45,7 @@ body{
     background-color: var(--card-color-dark);
     border-radius: 30px;
     padding: 20px;
-    box-shadow:  3px 3px 6px #151719, -3px -3px 6px #535b63;
+    box-shadow:  4px 4px 8px #151719, -3px -3px 6px rgb(255, 255, 255);
 }
 
 .card .card-text{
@@ -101,7 +92,7 @@ body{
     background-color: var(--card-color-dark);
     border-radius: 30px;
     padding: 0px;
-    box-shadow: inset 3px 3px 6px #151719, inset -3px -3px 6px #535b63;
+    box-shadow: inset 3px 3px 6px #151719, inset -3px -3px 6px rgb(161, 160, 160);
     padding: 10px;
 }
 
@@ -122,16 +113,50 @@ body{
     height: 1.8vw;
     border-radius: 5px;
     background: #2B2E33;
-    box-shadow: inset 0px 2px 5px rgb(0, 0, 0), -0px 2px 3px #555a64;
+    box-shadow: inset 0px 2px 5px rgb(0, 0, 0), -0px 2px 3px #ffffff;
     overflow: hidden;
     margin-top: 7px;
 }
 
 .progressbar .progress {
     height: 100%;
-    border-radius: 5px;
-    background: var(--level1-color)/*linear-gradient(to right, red, orange, yellow)*/;
+    border-radius: 0px;
+    background: var(--level-color)/*linear-gradient(to right, red, orange, yellow)*/;
     width: var(--progress-level);
     box-shadow: inset 0px 1px 6px black;
 }
 
+nav{
+    width: 90%;
+    height: 70px;
+    position: absolute;
+    bottom: 20px;
+    max-width: 365px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.navbar{
+    aspect-ratio: 1;
+    height: 100%;
+    background-color: #24272C;
+    border-radius: 40px;
+    box-shadow:  4px 4px 8px #000000, -3px -3px 6px rgb(255, 255, 255);
+    border: none;
+    transition: all 0.3s ease;
+
+    
+}
+
+.navbar:active{
+    box-shadow: none;
+    height: 99%;
+}
+
+.navbar:focus {
+    height: 99%;
+    box-shadow: none;
+  }
