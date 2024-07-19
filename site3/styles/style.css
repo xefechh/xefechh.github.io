@@ -22,18 +22,10 @@
     font-family: 'Inconsolata', sans-serif;
     user-select: none;
     -webkit-user-select: none; /* Safari, Chrome, and Opera */
-  
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer and Edge */
-  
     user-select: none; /* Standard syntax */
 }
-
-* {
-
-    
-  
-  }
 
 html, body {
     width: 100%;
@@ -147,7 +139,7 @@ nav{
     background-color: transparent;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -159,8 +151,6 @@ nav{
     box-shadow:  4px 4px 8px #000000, -3px -3px 6px rgb(255, 255, 255);
     border: none;
     transition: all 0.3s ease;
-
-    
 }
 
 .navbar:active{
