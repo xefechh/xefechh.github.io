@@ -130,6 +130,14 @@ body{
     box-shadow: inset 0px 1px 6px black;
 }
 
+.next-level{
+    display: flex;
+    font-weight: bold;
+    width: 90%;
+    max-width: 365px;
+    justify-content: right;
+}
+
 nav{
     width: 90%;
     height: 70px;
@@ -150,15 +158,15 @@ nav{
     border-radius: 40px;
     box-shadow:  4px 4px 8px #000000, -3px -3px 6px rgb(255, 255, 255);
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
 }
-
-.navbar:active{
-    box-shadow: none;
-    height: 99%;
+button i{
+    color: #d4d4d4;
+    font-size: 30px;
+    text-shadow: inset 20px 20px 60px #b4b4b4, inset -20px -20px 60px #f4f4f4;
 }
 
-.navbar:focus {
-    height: 99%;
-    box-shadow: none;
-  }
+
