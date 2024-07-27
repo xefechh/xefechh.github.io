@@ -1,15 +1,9 @@
 window.Telegram.WebApp.expand();
-console.log('IT WORKS!');
 Telegram.WebApp.showAlert({
-
   text: 'IT WORKS!',
-
   onClick: () => {
-
     // Optional: handle the alert close event
-
   }
-
 });
 
 const budget = document.querySelector('.budget');
