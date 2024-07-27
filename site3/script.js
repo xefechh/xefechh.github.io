@@ -22,10 +22,7 @@ function updateProgressBar() {
   progressBar.style.width = `${progress}%`;
 }
 
-
-
 if (window.location.pathname === '/index.html') {
-  
   Telegram.WebApp.TopButton.set({
     text: 'Close',
     onClick: () => {
