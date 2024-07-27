@@ -22,14 +22,19 @@ function updateProgressBar() {
   progressBar.style.width = `${progress}%`;
 }
 
-if (window.location.pathname !== '/index.html') {
-  // Show the back button
-  Telegram.WebApp.BackButton.show();
-  Telegram.WebApp.BackButton.onClick(() => {
-    // Navigate back to the index page
-    window.location.href = 'index.html';
+
+
+if (window.location.pathname === '/index.html') {
+  
+  Telegram.WebApp.TopButton.set({
+    text: 'Close',
+    onClick: () => {
+      Telegram.WebApp.close();
+    }
   });
 } else {
-  // Hide the back button on the index page
-  Telegram.WebApp.BackButton.hide();
+  Telegram.WebApp.BackButton.show();
+  Telegram.WebApp.BackButton.onClick(() => {
+    window.location.href = 'index.html';
+  });
 }
