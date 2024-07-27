@@ -1,4 +1,6 @@
-window.Telegram.WebApp.expand();
+const wapp = window.Telegram.WebApp;
+
+wapp.expand();
 const budget = document.querySelector('.budget');
 let score = 0;
 
