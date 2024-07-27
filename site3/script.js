@@ -22,7 +22,7 @@ function updateProgressBar() {
   progressBar.style.width = `${progress}%`;
 }
 
-if (window.location.pathname === '/index.html') {
+if (window.location.pathname === 'index.html') {
   Telegram.WebApp.BackButton.hide();
 } else {
   Telegram.WebApp.BackButton.show();
