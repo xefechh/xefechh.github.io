@@ -21,3 +21,15 @@ function updateProgressBar() {
   // Update the progress bar's width
   progressBar.style.width = `${progress}%`;
 }
+
+if (window.location.pathname !== '/index.html') {
+  // Show the back button
+  Telegram.WebApp.BackButton.show();
+  Telegram.WebApp.BackButton.onClick(() => {
+    // Navigate back to the index page
+    window.location.href = 'index.html';
+  });
+} else {
+  // Hide the back button on the index page
+  Telegram.WebApp.BackButton.hide();
+}
