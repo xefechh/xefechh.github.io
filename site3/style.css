@@ -1,173 +1,118 @@
-/*IMPORTS*/
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Tap To | Home Page</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        /* IMPORTS */
+        @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
-/*MAIN COLORS*/
-:root{
-/*DARK COLORS*/
-    --background-color-bottom-dark: #191A1D;
-    --background-color-top-dark: #34393E;
-    --card-color-dark: #34393E;
-    --text-color-dark: #A7A8AA;
-    --level-color: #65d681;
-    --level-color-dark: #789980;
-    --progress-level: 60%;
-/*LIGHT COLORS*/
-}
+        /* MAIN STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inconsolata', sans-serif;
+            user-select: none;
+        }
 
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
 
-/*MAIN STYLES*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inconsolata', sans-serif;
-    user-select: none;
-    -webkit-user-select: none; /* Safari, Chrome, and Opera */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer and Edge */
-    user-select: none; /* Standard syntax */
-}
+        body {
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* Stack items vertically */
+        }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-body{
-    background: linear-gradient(to right, #CED7E0, #7C7B89);
-    padding: min(5%, 20px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .coin {
+            width: 40vw; /* 40% of the viewport width */
+            height: 40vw; /* Maintain the aspect ratio */
+            border: solid 20px white;
+            background-color: rgb(65, 65, 65);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Adds a shadow for better visibility */
+            transition: transform 0.2s; /* Smooth animation on click */
+            margin-top: 20px; /* Add some space between budget and coin */
+        }
 
-/*CARD*/
-.card{
-    max-width: 365px;
-    width: 100%;
-    aspect-ratio: 16/9;
-    background-color: var(--card-color-dark);
-    border-radius: 30px;
-    padding: 20px;
-    box-shadow:  4px 4px 8px #151719, -3px -3px 6px rgb(255, 255, 255);
-}
+        .coin:active {
+            transform: scale(0.95); /* Slightly scale down the coin when clicked */
+        }
 
-.card .card-text{
-    color: var(--text-color-dark);
-    font-size: 30px;
-    font-weight: 500;
-}
+        .budget {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-.card .budget{
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    font-size: min(34.3px, 8.5vw);
-    text-wrap: wrap;
-}
+        .budget i {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="budget card-text"><i class='bx bx-dollar'></i><span id="score">0</span></div>
+    <div class="game-container">
+        <div class="coin" onclick="clickCoin()"></div>
+    </div>
 
-.card .card-number{
-    font-size: min(34.3px, 8.5vw);
-    text-wrap: nowrap;
-}
+    <script>
+        // Ensure Telegram WebApp is loaded and expanded
+        const wapp = window.Telegram.WebApp;
+        wapp.expand();
 
-.card .registration-date{
-    font-size: min(24px, 6vw);
-}
+        // Initialize score
+        let score = 0;
 
-.data-container{
-    display: flex;
-    max-width: 365px;
-    width: 100%;
-    flex-direction: row;
-    aspect-ratio: 12/2;
-    padding: 0;
-    margin-top: 10px;
-    gap: 5px;
-}
+        // Function to load the score from Telegram storage
+        function loadScore() {
+            // Retrieve stored score from Telegram storage
+            wapp.storage.get('score', (data) => {
+                if (data) {
+                    score = parseInt(data.score) || 0;
+                    document.getElementById('score').textContent = score;
+                }
+            });
+        }
 
-.data {
-    flex-grow: 1;
-    color: var(--text-color-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* center horizontally */
-    background-color: var(--card-color-dark);
-    border-radius: 30px;
-    padding: 0px;
-    box-shadow: inset 3px 3px 6px #151719, inset -3px -3px 6px rgb(161, 160, 160);
-    padding: 10px;
-}
+        // Function to save the score to Telegram storage
+        function saveScore() {
+            // Save the current score to Telegram storage
+            wapp.storage.set({ score: score.toString() });
+        }
 
-.data span:nth-child(1){
-    display: flex;
-    align-items: center;
-}
+        // Function to handle coin clicks
+        function clickCoin() {
+            score++;
+            document.getElementById('score').textContent = score;
+            saveScore(); // Save score every time the coin is clicked
+        }
 
-.data span:nth-child(2){
-    font-weight: bold;
-}
-
-
-.progressbar {
-    width: 90%;
-    max-width: 330px;
-    max-height: 7px;
-    height: 1.81vw;
-    border-radius: 5px;
-    background: #2B2E33;
-    box-shadow: inset 0px 2px 5px rgb(0, 0, 0), -0px 2px 3px #ffffff;
-    overflow: hidden;
-    margin-top: 7px;
-}
-
-.progressbar .progress {
-    height: 100%;
-    border-radius: 0px;
-    background: var(--level-color)/*linear-gradient(to right, red, orange, yellow)*/;
-    width: 0%;
-    box-shadow: inset 0px 1px 6px black;
-}
-
-.next-level{
-    display: flex;
-    font-weight: bold;
-    width: 90%;
-    max-width: 330px;
-    justify-content: right;
-}
-
-nav{
-    width: 90%;
-    height: 70px;
-    position: absolute;
-    bottom: 20px;
-    max-width: 365px;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.navbar{
-    aspect-ratio: 1;
-    height: 100%;
-    background-color: #24272C;
-    border-radius: 40px;
-    box-shadow:  4px 4px 8px #000000, -3px -3px 6px rgb(255, 255, 255);
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-button i{
-    color: #d4d4d4;
-    font-size: 30px;
-    text-shadow: inset 20px 20px 60px #b4b4b4, inset -20px -20px 60px #f4f4f4;
-}
-
-
+        // Load the score when the app starts
+        window.addEventListener('load', () => {
+            loadScore();
+        });
+    </script>
+</body>
+</html>
