@@ -1,5 +1,6 @@
 window.Telegram.WebApp.expand();
-Telegram.WebApp.showAlert({
+
+window.Telegram.WebApp.showAlert({
   text: 'IT WORKS!',
   onClick: () => {
     // Optional: handle the alert close event
