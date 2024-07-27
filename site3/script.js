@@ -1,4 +1,5 @@
 window.Telegram.WebApp.expand();
+console.log('IT WORKS!');
 Telegram.WebApp.showAlert({
 
   text: 'IT WORKS!',
@@ -10,6 +11,7 @@ Telegram.WebApp.showAlert({
   }
 
 });
+
 const budget = document.querySelector('.budget');
 let score = 0;
 
