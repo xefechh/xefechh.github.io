@@ -1,8 +1,6 @@
-const wapp = window.Telegram.WebApp;
+window.Telegram.WebApp.expand();
+const budget = document.querySelector('.budget');
 
-wapp.expand(); // Expand the web app
-
-  const budget = document.querySelector('.budget');
 let score = 0;
 
 // Load user data when the app starts
