@@ -23,8 +23,9 @@ function updateProgressBar() {
 }
 
 if (window.location.pathname === 'index.html') {
-  Telegram.WebApp.BackButton.hide();
+  Telegram.WebApp.BackButton.visible = false;
 } else {
+  Telegram.WebApp.BackButton.visible = true;
   Telegram.WebApp.BackButton.show();
   Telegram.WebApp.BackButton.onClick(() => {
     window.location.href = 'index.html';
