@@ -13,7 +13,6 @@ document.body.addEventListener('pointerdown', (event) => {
     score++;
     budget.innerHTML = `<i class='bx bx-dollar'></i>${score}`;
     updateProgressBar();
-    saveUserData(); // Save data after updating the score
   }
 });
 
@@ -64,3 +63,10 @@ function loadUserData() {
     }
   });
 }
+
+// Automatically save user data every 5 seconds
+setInterval(() => {
+  saveUserData();
+}, 5000); // 5000 milliseconds = 5 seconds
+
+
