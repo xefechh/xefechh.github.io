@@ -23,12 +23,7 @@ function updateProgressBar() {
 }
 
 if (window.location.pathname === '/index.html') {
-  Telegram.WebApp.BackButton.set({
-    text: 'Close',
-    onClick: () => {
-      Telegram.WebApp.close();
-    }
-  });
+  Telegram.WebApp.BackButton.hide();
 } else {
   Telegram.WebApp.BackButton.show();
   Telegram.WebApp.BackButton.onClick(() => {
