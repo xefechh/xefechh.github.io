@@ -21,18 +21,3 @@ function updateProgressBar() {
   // Update the progress bar's width
   progressBar.style.width = `${progress}%`;
 }
-
-if (window.location.pathname.endsWith('index.html')) {
-  Telegram.WebApp.BackButton.hide(); // Ensure the back button is hidden
-  Telegram.WebApp.MainButton.setText('Close');
-  Telegram.WebApp.MainButton.show();
-  Telegram.WebApp.MainButton.onClick(() => {
-    Telegram.WebApp.close(); // Closes the web app
-  });
-} else {
-  Telegram.WebApp.MainButton.hide(); // Ensure the main button is hidden
-  Telegram.WebApp.BackButton.show(); // Show the back button on other pages
-  Telegram.WebApp.BackButton.onClick(() => {
-    window.location.href = 'index.html';
-  });
-}
