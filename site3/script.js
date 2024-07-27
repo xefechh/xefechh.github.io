@@ -1,5 +1,15 @@
 window.Telegram.WebApp.expand();
-alert('IT WORKS!');
+Telegram.WebApp.showAlert({
+
+  text: 'IT WORKS!',
+
+  onClick: () => {
+
+    // Optional: handle the alert close event
+
+  }
+
+});
 const budget = document.querySelector('.budget');
 let score = 0;
 
