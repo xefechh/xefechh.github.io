@@ -1,7 +1,4 @@
 window.Telegram.WebApp.expand();
-window.Telegram.WebApp.MainButton.color = '#FFFFFF';
-window.Telegram.WebApp.MainButton.textColor = '#000000';
-
 const budget = document.querySelector('.budget');
 let score = 0;
 
