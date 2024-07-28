@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Tap To | Home Page</title>
+    <title>Tap To | Clicker Game</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
@@ -30,9 +30,20 @@
         body {
             background: black;
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .budget {
+            color: white;
+            font-size: 24px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .budget i {
+            color: white;
         }
 
         .game-container {
@@ -40,8 +51,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-bottom: 70px;
-            /* Space for the navbar */
+            flex: 1;
+            width: 100%;
+            height: calc(100% - 60px); /* Adjust for navbar height */
         }
 
         .coin {
@@ -61,17 +73,6 @@
 
         .coin:active {
             transform: scale(0.95);
-        }
-
-        .budget {
-            color: white;
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .budget i {
-            color: white;
         }
 
         /* NAVBAR STYLES */
@@ -116,13 +117,58 @@
             font-size: 12px;
             text-shadow: none;
         }
+
+        /* PAGE SECTIONS */
+        .section {
+            display: none; /* Hide sections by default */
+            flex: 1;
+            width: 100%;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section.active {
+            display: flex; /* Show only the active section */
+        }
     </style>
 </head>
 
 <body>
-    <div class="budget card-text"><i class='bx bx-dollar'></i><span id="score">0</span></div>
+    <!-- Top Budget Display -->
+    <div class="budget card-text">
+        <i class='bx bx-dollar'></i>
+        <span id="score">0</span>
+    </div>
+
+    <!-- Game Container -->
     <div class="game-container">
-        <div class="coin" onclick="clickCoin()"></div>
+        <!-- Home Section -->
+        <div id="home" class="section active">
+            <div class="coin" onclick="clickCoin()">Tap</div>
+        </div>
+
+        <!-- Upgrades Section -->
+        <div id="upgrades" class="section">
+            <h2>Upgrades</h2>
+            <p>Upgrade your clicking power here!</p>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="profile" class="section">
+            <h2>Profile</h2>
+            <p>View your profile stats here.</p>
+        </div>
+
+        <!-- Airdrop Section -->
+        <div id="airdrop" class="section">
+            <h2>Airdrop</h2>
+            <p>Claim your airdrops here.</p>
+        </div>
     </div>
 
     <!-- Bottom Navigation Menu -->
@@ -160,26 +206,18 @@
             saveScore();
         }
 
-        // Function to load the score from Telegram's storage
+        // Function to load the score from local storage
         function loadScore() {
-            if (window.Telegram.WebApp.initDataUnsafe.user) {
-                const storedScore = localStorage.getItem('score');
-                if (storedScore) {
-                    score = parseInt(storedScore, 10);
-                    document.getElementById('score').textContent = score;
-                }
-            } else {
-                alert('User data is not available. Please ensure the Telegram WebApp is properly initialized.');
+            const storedScore = localStorage.getItem('score');
+            if (storedScore) {
+                score = parseInt(storedScore, 10);
+                document.getElementById('score').textContent = score;
             }
         }
 
-        // Function to save the score to Telegram's storage
+        // Function to save the score to local storage
         function saveScore() {
-            if (window.Telegram.WebApp.initDataUnsafe.user) {
-                localStorage.setItem('score', score);
-            } else {
-                alert('User data is not available. Please ensure the Telegram WebApp is properly initialized.');
-            }
+            localStorage.setItem('score', score);
         }
 
         // Load the score when the app starts
@@ -189,9 +227,18 @@
 
         // Function to handle navigation button clicks
         function navigateTo(page) {
-            alert(`Navigating to ${page}`);
-            // Implement your navigation logic here
-            // e.g., window.location.href = `${page}.html`;
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show the selected section
+            const selectedSection = document.getElementById(page);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            } else {
+                console.error(`Section with ID '${page}' not found.`);
+            }
         }
     </script>
 </body>
